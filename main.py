@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 
-app = Flask("__main__")
+app = Flask(__name__)
 
 data = []
 
@@ -33,4 +33,5 @@ def dedup():
 
     return render_template("dedup.html", data=data)
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port='80')
