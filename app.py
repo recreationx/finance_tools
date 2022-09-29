@@ -33,5 +33,3 @@ def dedup():
                     return render_template("dedup.html",data=data, alert=f"Item code with same supplier exist. New quantity is {new_quantity}.")
             data.append([item, supplier, quantity])
     return render_template("dedup.html", data=data)
-
-app.run()
