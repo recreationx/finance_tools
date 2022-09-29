@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/beercss@2.2.11/dist/cdn/beer.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/beercss@2.2.11/dist/cdn/beer.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js" type="text/javascript"></script>
+        <title>Finance</title>
+    </head>
+    <body>
+        <main class="responsive">
+            <header>
+                <nav>
+                <button class="circle transparent" data-ui="#modal-navigation-drawer">
+                    <i>menu</i>
+                </button>
+                <h5 class="max center-align">Deduplication Tool</h5>
+                </nav>
+            </header>
+            <br>
+            <div class="modal left" id="modal-navigation-drawer">
+                <header class="fixed">
+                  <nav>
+                    <button class="transparent circle" data-ui="#modal-navigation-drawer">
+                      <i>close</i>
+                    </button>
+                    <h5 class="max">Header</h5>
+                  </nav>
+                </header>
+                <a class="row round" href="/">
+                  <i>home</i>
+                  <span>Home</span>
+                </a>
+                <a class="row round">
+                  <i>page</i>
+                  <span>De-Duplicate</span>
+                </a>
+              </div>
+              <p class="large-text">{{ alert }}</p>
+              <form method="POST" action="/dedup" autocomplete="off">
+                <div class="field label prefix border round">
+                    <i>password</i>
+                    <input type="text" name="item">
+                    <label>Item Code</label>
+                </div>
+                <div class="field label prefix border round">
+                    <i>inventory_2</i>
+                    <input type="text" name="supplier">
+                    <label>Supplier</label>
+                </div>
+                <div class="field label prefix border round">
+                    <i>123</i>
+                    <input type="text" name="quantity">
+                    <label>Quantity</label>
+                </div>
+                <div class="grid large-space">
+                    <div class="s6">
+                        <button class="responsive" type="submit">Add</button>
+                    </div>
+                    <div class="s6">
+                        <button class="responsive" name="clear" type="submit">Clear</button>
+                    </div>
+                </div>
+            </form>
+
+            <table class="border medium-space">
+                <thead>
+                  <tr>
+                    <th>Item Code</th>
+                    <th>Supplier</th>
+                    <th>Quantity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for entry in data %}
+                  <tr>
+                    <td>{{ entry[0] }}</td>
+                    <td>{{ entry[1] }}</td>
+                    <td>{{ entry[2] }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </main>
+    </body>
+</html>
