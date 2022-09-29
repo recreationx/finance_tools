@@ -32,6 +32,3 @@ def dedup():
             data.append([item, supplier, quantity])
 
     return render_template("dedup.html", data=data)
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='80')
